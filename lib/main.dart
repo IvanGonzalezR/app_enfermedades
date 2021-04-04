@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'AppEnfermedades',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'App Enfermedades equipo 8'),
     );
   }
 }
@@ -100,7 +101,16 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'You have pushed the button this many times:',
+              "EQUIPO 8",
+              style: Theme.of(context).textTheme.headline2,
+            ),
+            Text(
+              "Noticias y articulos",
+              style: Theme.of(context).textTheme.headline4,
+            ),
+            Text(
+              "Enfermedades",
+              style: Theme.of(context).textTheme.headline4,
             ),
             Text(
               '$_counter',
@@ -112,7 +122,7 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
-        child: Icon(Icons.add),
+        child: Icon(CupertinoIcons.question),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
