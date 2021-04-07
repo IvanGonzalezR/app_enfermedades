@@ -6,37 +6,112 @@ import 'package:flutter/services.dart';
 void main() =>  runApp(MyApp());
 
 
-class MyApp extends StatelessWidget{
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Equipo 8',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('App Enfermedades'),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-            Text("EQUIPO 8",style: TextStyle(fontSize: 50, color: Colors.black)),
-              Text('Noticias y articulos',style: TextStyle(fontSize: 40, color: Colors.lightBlue)),
-              //en la parte de onPressed se agregara el metodo para ir a la siguiente pagina
-              new RaisedButton(color: Colors.blue,textColor: Colors.white,child: Text('Enterate de las ultimas noticias \nsobre la salud',
-                  style: TextStyle(fontSize: 20.0)),onPressed: (){}),
-              Text('Enfermedades',style: TextStyle(fontSize: 40, color: Colors.lightBlue)),
-              new RaisedButton(color: Colors.blue,textColor: Colors.white,child: Text('Obten informacion sobre una\n amplia cantidad de enfermedades',
-                  style: TextStyle(fontSize: 20.0)),onPressed: (){}),
-            ],
+      theme: ThemeData(primarySwatch: Colors.lightBlue),
+      home: pantallaPrincipal(),
+    );
+  }
+}
+
+class pantallaPrincipal extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+          appBar: AppBar(
+            title: Text('App Enfermedades'),
           ),
-        ),
-        //Boton signo de interrogacion
-        floatingActionButton: FloatingActionButton(
-          onPressed: (){},
-          tooltip: 'Informacion sobre nosotros',
-          child: Icon(CupertinoIcons.question),
-        ),
-      )
+          body: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text("EQUIPO 8",style: TextStyle(fontSize: 50, color: Colors.black)),
+                Text('Noticias y articulos',style: TextStyle(fontSize: 40, color: Colors.lightBlue)),
+                //en la parte de onPressed se agregara el metodo para ir a la siguiente pagina
+                new RaisedButton(color: Colors.blue,textColor: Colors.white,child: Text('Enterate de las ultimas noticias \nsobre la salud',
+                    style: TextStyle(fontSize: 20.0)),onPressed: (){
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => pantallaNoticiasyArticulos()));
+                }),
+                Text('Enfermedades',style: TextStyle(fontSize: 40, color: Colors.lightBlue)),
+                new RaisedButton(color: Colors.blue,textColor: Colors.white,child: Text('Obten informacion sobre una\n amplia cantidad de enfermedades',
+                    style: TextStyle(fontSize: 20.0)),onPressed: (){
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => pantallaEnfermedades()));
+                }),
+              ],
+            ),
+          ),
+          //Boton signo de interrogacion
+          floatingActionButton: FloatingActionButton(
+            onPressed: (){
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => pantallaAcercaDe()));
+            },
+            tooltip: 'Informacion sobre nosotros',
+            child: Icon(CupertinoIcons.question),
+          ),
+        )
+    ;
+  }
+}
+
+class pantallaEnfermedades extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Enfermedades'),
+      ),
+      body: Center(
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text('Prueba de tercera pantalla',style: TextStyle(fontSize: 50, color: Colors.black)),
+              ]
+          )
+      ),
+    );
+  }
+}
+
+class pantallaNoticiasyArticulos extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Noticias y articulos'),
+      ),
+      body: Center(
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text('Prueba de segunda pantalla',style: TextStyle(fontSize: 50, color: Colors.black)),
+              ]
+          )
+      ),
+    );
+  }
+}
+
+
+class pantallaAcercaDe extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Acerca de'),
+      ),
+      body: Center(
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text('App creada con flutter por el equipo 8',style: TextStyle(fontSize: 50, color: Colors.black)),
+              ]
+          )
+      ),
     );
   }
 }
