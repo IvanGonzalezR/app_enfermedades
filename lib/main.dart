@@ -1,3 +1,5 @@
+import 'package:app_enfermedades/pantalla_acerca_de.dart';
+import 'package:app_enfermedades/pantalla_principal.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -8,49 +10,32 @@ void main() =>  runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context)
+  {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.transparent));
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.lightBlue),
-      home: pantallaPrincipal(),
+      home: PantallaPrincipal(),
     );
   }
 }
 
-class pantallaPrincipal extends StatelessWidget{
+class pasntallaPrincipal extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
           appBar: AppBar(
             title: Text('App Enfermedades'),
           ),
-          body: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text("EQUIPO 8",style: TextStyle(fontSize: 50, color: Colors.black)),
-                Text('Noticias y articulos',style: TextStyle(fontSize: 40, color: Colors.lightBlue)),
-                //en la parte de onPressed se agregara el metodo para ir a la siguiente pagina
-                new RaisedButton(color: Colors.blue,textColor: Colors.white,child: Text('Enterate de las ultimas noticias \nsobre la salud',
-                    style: TextStyle(fontSize: 20.0)),onPressed: (){
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => pantallaNoticiasyArticulos()));
-                }),
-                Text('Enfermedades',style: TextStyle(fontSize: 40, color: Colors.lightBlue)),
-                new RaisedButton(color: Colors.blue,textColor: Colors.white,child: Text('Obten informacion sobre una\n amplia cantidad de enfermedades',
-                    style: TextStyle(fontSize: 20.0)),onPressed: (){
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => pantallaEnfermedades()));
-                }),
-              ],
-            ),
-          ),
+          body: PantallaPrincipal(),
           //Boton signo de interrogacion
           floatingActionButton: FloatingActionButton(
             onPressed: (){
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => pantallaAcercaDe()));
+              Navigator.of(context).push(CupertinoPageRoute(
+                  builder: (context) => PantallaAcercaDe()));
             },
-            tooltip: 'Informacion sobre nosotros',
+            tooltip: 'Información sobre nosotros',
             child: Icon(CupertinoIcons.question),
           ),
         )
@@ -58,60 +43,3 @@ class pantallaPrincipal extends StatelessWidget{
   }
 }
 
-class pantallaEnfermedades extends StatelessWidget{
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Enfermedades'),
-      ),
-      body: Center(
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text('Prueba de tercera pantalla',style: TextStyle(fontSize: 50, color: Colors.black)),
-              ]
-          )
-      ),
-    );
-  }
-}
-
-class pantallaNoticiasyArticulos extends StatelessWidget{
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Noticias y articulos'),
-      ),
-      body: Center(
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text('Prueba de segunda pantalla',style: TextStyle(fontSize: 50, color: Colors.black)),
-              ]
-          )
-      ),
-    );
-  }
-}
-
-
-class pantallaAcercaDe extends StatelessWidget{
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Acerca de'),
-      ),
-      body: Center(
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text('App creada con flutter por el equipo 8',style: TextStyle(fontSize: 50, color: Colors.black)),
-              ]
-          )
-      ),
-    );
-  }
-}
