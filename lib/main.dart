@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class pasntallaPrincipal extends StatelessWidget{
+class pantallaPrincipal extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Scaffold(

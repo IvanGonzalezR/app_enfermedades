@@ -60,6 +60,14 @@ class PantallaPrincipal extends StatelessWidget {
           ]))
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+      onPressed: (){
+      Navigator.of(context).push(CupertinoPageRoute(
+      builder: (context) => PantallaAcercaDe()));
+      },
+      tooltip: 'Información sobre nosotros',
+      child: Icon(CupertinoIcons.question)
+      )
     );
   }
 }
