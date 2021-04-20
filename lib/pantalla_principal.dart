@@ -13,17 +13,17 @@ class PantallaPrincipal extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text("EQUIPO 8",style: TextStyle(fontSize: 50, color: Colors.black)),
-          Text('Noticias y articulos',style: TextStyle(fontSize: 40, color: Colors.lightBlue)),
+          Text('Noticias y articulos',style: TextStyle(fontSize: 40, color: Color(0xff459AFF))),
           //en la parte de onPressed se agregara el metodo para ir a la siguiente pagina
           new RaisedButton(color: Colors.blue, textColor: Colors.white,child: Text('Enterate de las ultimas noticias \nsobre la salud',
               style: TextStyle(fontSize: 20.0)),onPressed: (){
-            Navigator.of(context).push(MaterialPageRoute(
+            Navigator.of(context).push(CupertinoPageRoute(
                 builder: (context) =>PantallaNoticiasyArticulos()));
           }),
-          Text('Enfermedades',style: TextStyle(fontSize: 40, color: Colors.lightBlue)),
+          Text('Enfermedades',style: TextStyle(fontSize: 40, color: Color(0xff459AFF))),
           new RaisedButton(color: Colors.blue,textColor: Colors.white,child: Text('Obten informacion sobre una\n amplia cantidad de enfermedades',
               style: TextStyle(fontSize: 20.0)),onPressed: (){
-            Navigator.of(context).push(MaterialPageRoute(
+            Navigator.of(context).push(CupertinoPageRoute(
                 builder: (context) => PantallaEnfermedades()));
           }),
         ],
