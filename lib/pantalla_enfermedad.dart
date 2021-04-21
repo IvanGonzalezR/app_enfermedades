@@ -44,7 +44,7 @@ class _PantallaEnfermedadState extends State<PantallaEnfermedad> {
     var maxScrollVal = _scrollController.position.maxScrollExtent;
     // _scrollController.initialScrollOffset ==
 
-    var divisor = (maxScrollVal / apartados.length) + 20;
+    var divisor = (maxScrollVal / apartados.length);
 
     var scrollValue = _scrollController.offset.round();
     var slideValue = (scrollValue / divisor).round();
@@ -63,9 +63,9 @@ class _PantallaEnfermedadState extends State<PantallaEnfermedad> {
 
     var maxScrollValue = _scrollController.position.maxScrollExtent;
 
-    var divisor = (maxScrollValue / apartados.length+25) + 20;
+    var divisor = (maxScrollValue / apartados.length)-33;
 
-    var scrollToValue = whichSlide * divisor;
+    var scrollToValue = (whichSlide >=3 ? whichSlide+2 : whichSlide) * divisor;
 
     _scrollController.animateTo(scrollToValue,
         curve: Curves.easeIn, duration: Duration(milliseconds: 500));
@@ -75,21 +75,7 @@ class _PantallaEnfermedadState extends State<PantallaEnfermedad> {
   Widget getCards(slide) {
     return Padding(
       padding: EdgeInsets.only(top: 10.0),
-      // padding: EdgeInsets.only(top: 10.0),
-      // height: MediaQuery.of(context).size.height/10,
-      // padding: EdgeInsets.only(left: 10.0),
-      // margin: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height/35),
-      // decoration: BoxDecoration(
-      //   color: Colors.white,
-      //     boxShadow: [
-      //       BoxShadow(color: Colors.grey[200], blurRadius: 15, spreadRadius: 8)
-      //     ],
-      //     border: Border.all(
-      //         color: Colors.grey.withOpacity(0.3),
-      //         style: BorderStyle.solid,
-      //         width: 1.0,
-      //     ),
-      //   ),
+
         // width: 125.0,
         child: Container(
           padding: EdgeInsets.only(bottom: 20.0, left: MediaQuery.of(context).size.width/15, right: MediaQuery.of(context).size.width/15),
