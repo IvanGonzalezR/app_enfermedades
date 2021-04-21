@@ -1,10 +1,12 @@
+import 'package:app_enfermedades/pantalla_enfermedad.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class TarjetasEnfermedades extends StatefulWidget {
   String pathImage;
   String nombreEnfermedad;
 
-  TarjetasEnfermedades(this.pathImage, this.nombreEnfermedad);
+  TarjetasEnfermedades(this.nombreEnfermedad, this.pathImage,);
   @override
   _TarjetasEnfermedadesState createState() => _TarjetasEnfermedadesState();
 }
@@ -14,7 +16,8 @@ class _TarjetasEnfermedadesState extends State<TarjetasEnfermedades> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("oa")));
+        Navigator.of(context).push(CupertinoPageRoute(
+            builder: (context) => PantallaEnfermedad(widget.nombreEnfermedad, widget.pathImage)));
       },
       child: Container(
         decoration: BoxDecoration(
