@@ -32,7 +32,7 @@ class _PantallaEnfermedadState extends State<PantallaEnfermedad> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    _scrollController = ScrollController();
+    _scrollController = ScrollController(keepScrollOffset: true);
     _scrollController.addListener(changeSelector);
     setState(() {
       selectedSlide = apartados[0];
@@ -42,6 +42,7 @@ class _PantallaEnfermedadState extends State<PantallaEnfermedad> {
 
   changeSelector() {
     var maxScrollVal = _scrollController.position.maxScrollExtent;
+    // _scrollController.initialScrollOffset ==
 
     var divisor = (maxScrollVal / apartados.length) + 20;
 
@@ -58,18 +59,16 @@ class _PantallaEnfermedadState extends State<PantallaEnfermedad> {
   }
 
   scrollToSlide(inputSlide) {
-    var whichSlide = apartados
-        .indexWhere((slide) => slide['nombreApartado'] == inputSlide['nombreApartado']);
+    int whichSlide = apartados.indexWhere((slide) => slide['nombreApartado'] == inputSlide['nombreApartado']);
 
     var maxScrollValue = _scrollController.position.maxScrollExtent;
 
-    var divisor = (maxScrollValue / apartados.length-1) + 20;
+    var divisor = (maxScrollValue / apartados.length+25) + 20;
 
     var scrollToValue = whichSlide * divisor;
 
     _scrollController.animateTo(scrollToValue,
         curve: Curves.easeIn, duration: Duration(milliseconds: 500));
-
   }
 
   // CONTENIDO DE LA PANTALLA
@@ -142,43 +141,43 @@ class _PantallaEnfermedadState extends State<PantallaEnfermedad> {
         ),
     );
   }
+
+  Widget getTitles(slide){
+    return InkWell(
+      onTap: (){
+        scrollToSlide(slide);
+      },
+      child: Container(
+        alignment: Alignment.center,
+
+        padding: EdgeInsets.only( left: 8.0, right: 8.0),
+        margin: EdgeInsets.only(right: MediaQuery.of(context).size.width/40, left: MediaQuery.of(context).size.width/40,
+            top: MediaQuery.of(context).size.height/95, bottom: MediaQuery.of(context).size.height/95),
+
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(50.0),
+          color: Color(0xff459AFF),
+        ),
+
+        child: Text(
+          slide['nombreApartado'],
+          style: TextStyle(
+              fontFamily: "Lato",
+              fontWeight: slide['seleccionado'] ? FontWeight.bold : FontWeight.normal,
+              fontSize: 17.0,
+              decoration: slide['seleccionado'] ? TextDecoration.underline : TextDecoration.none,
+              fontStyle: slide['seleccionado'] ? FontStyle.italic : FontStyle.normal,
+              color: Colors.white
+          ),
+        ),
+      ),
+    );
+  }
   
   @override
   Widget build(BuildContext context) {
 
     widget.datos = [widget.textQueEs, widget.textStats, widget.textSynthoms, widget.texttratamiento, widget.textPrevencion];
-
-    Widget getTitles(apartados){
-      return InkWell(
-        onTap: (){
-          scrollToSlide(apartados);
-        },
-        child: Container(
-          alignment: Alignment.center,
-
-          padding: EdgeInsets.only( left: 8.0, right: 8.0),
-          margin: EdgeInsets.only(right: MediaQuery.of(context).size.width/40, left: MediaQuery.of(context).size.width/40,
-          top: MediaQuery.of(context).size.height/95, bottom: MediaQuery.of(context).size.height/95),
-          
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50.0),
-            color: Color(0xff459AFF),
-          ),
-          
-          child: Text(
-            apartados['nombreApartado'],
-            style: TextStyle(
-              fontFamily: "Lato",
-              fontWeight: apartados['seleccionado'] ? FontWeight.bold : FontWeight.normal,
-              fontSize: 17.0,
-              decoration: apartados['seleccionado'] ? TextDecoration.underline : TextDecoration.none,
-              fontStyle: apartados['seleccionado'] ? FontStyle.italic : FontStyle.normal,
-              color: Colors.white
-            ),
-          ),
-        ),
-      );
-    }
 
     final image = Stack(
       children: [
@@ -200,6 +199,7 @@ class _PantallaEnfermedadState extends State<PantallaEnfermedad> {
 
     final accesosDirectos = Container(
       height: MediaQuery.of(context).size.height/15,
+      width: MediaQuery.of(context).size.width,
       // color: Color(0xff459AFF),
       child: ListView(
         scrollDirection: Axis.horizontal,
@@ -212,11 +212,12 @@ class _PantallaEnfermedadState extends State<PantallaEnfermedad> {
 
 
     final cuerpo = Container(
-      width: double.infinity,
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height,
+      padding: EdgeInsets.only(bottom: MediaQuery.of(context).size.height/2.7),
       child: ListView(
-        padding: EdgeInsets.only(top: 0.0),
-        shrinkWrap: true,
-        physics: BouncingScrollPhysics(),
+        shrinkWrap: false,
+        physics: ClampingScrollPhysics(),
         controller: _scrollController,
         children: apartados.map((e){
           return getCards(e);
@@ -257,6 +258,7 @@ class _PantallaEnfermedadState extends State<PantallaEnfermedad> {
                 fit: StackFit.expand,
                 children: [
                   image,
+                  // accesosDirectos
                 ],
               ),
               stretchModes: [
@@ -267,7 +269,9 @@ class _PantallaEnfermedadState extends State<PantallaEnfermedad> {
           ),
           SliverList(delegate: SliverChildListDelegate([
             accesosDirectos,
-            cuerpo
+            Container(
+                child: cuerpo
+            )
           ]))
         ],
       ),
