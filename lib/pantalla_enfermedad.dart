@@ -4,8 +4,15 @@ import 'package:flutter/material.dart';
 class PantallaEnfermedad extends StatefulWidget {
   String nombreEnfermedad;
   String pathImage;
+  String textQueEs;
+  String textStats;
+  String textSynthoms;
+  String texttratamiento;
+  String textPrevencion;
 
-  PantallaEnfermedad(this.nombreEnfermedad, this.pathImage);
+  var datos;
+
+  PantallaEnfermedad(this.nombreEnfermedad, this.pathImage, this.textQueEs, this.textStats, this.textSynthoms, this.texttratamiento, this.textPrevencion);
   @override
   _PantallaEnfermedadState createState() => _PantallaEnfermedadState();
 }
@@ -13,11 +20,11 @@ class PantallaEnfermedad extends StatefulWidget {
 class _PantallaEnfermedadState extends State<PantallaEnfermedad> {
   ScrollController _scrollController;
   List apartados =[
-    {'nombreApartado': 'queEs', 'seleccionado': false},
-    {'nombreApartado': 'estadisticas', 'seleccionado': false},
-    {'nombreApartado': 'sintomas', 'seleccionado': false},
-    {'nombreApartado': 'tratamiento', 'seleccionado': false},
-    {'nombreApartado': 'prevencion', 'seleccionado': false},
+    {'nombreApartado': '¿Qué es?', 'seleccionado': false, 'id': '1'},
+    {'nombreApartado': 'Estadísticas', 'seleccionado': false, 'id': '2'},
+    {'nombreApartado': 'Síntomas', 'seleccionado': false, 'id': '3'},
+    {'nombreApartado': 'Tratamiento', 'seleccionado': false, 'id': '4'},
+    {'nombreApartado': 'Prevención', 'seleccionado': false, 'id': '5'},
   ];
   var selectedSlide;
 
@@ -29,7 +36,7 @@ class _PantallaEnfermedadState extends State<PantallaEnfermedad> {
     _scrollController.addListener(changeSelector);
     setState(() {
       selectedSlide = apartados[0];
-      selectedSlide['selected'] = true;
+      selectedSlide['seleccionado'] = true;
     });
   }
 
@@ -41,38 +48,18 @@ class _PantallaEnfermedadState extends State<PantallaEnfermedad> {
     var scrollValue = _scrollController.offset.round();
     var slideValue = (scrollValue / divisor).round();
 
-    var currentSlide = apartados.indexWhere((slide) => slide['selected']);
+    var currentSlide = apartados.indexWhere((slide) => slide['seleccionado']);
 
     setState(() {
-      apartados[currentSlide]['selected'] = false;
+      apartados[currentSlide]['seleccionado'] = false;
       selectedSlide = apartados[slideValue];
-      selectedSlide['selected'] = true;
+      selectedSlide['seleccionado'] = true;
     });
-  }
-
-  Widget getCards(slide) {
-    return Padding(
-      padding: EdgeInsets.only(top: 15.0, right: 10.0),
-      child: Container(
-        decoration: BoxDecoration(
-          border: Border.all(
-              color: Colors.black, style: BorderStyle.solid, width: 1.0),
-        ),
-        height: 200.0,
-        width: 125.0,
-        child: Center(
-          child: Text(
-            slide['slideName'],
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
-        ),
-      ),
-    );
   }
 
   scrollToSlide(inputSlide) {
     var whichSlide = apartados
-        .indexWhere((slide) => slide['slideName'] == inputSlide['slideName']);
+        .indexWhere((slide) => slide['nombreApartado'] == inputSlide['nombreApartado']);
 
     var maxScrollValue = _scrollController.position.maxScrollExtent;
 
@@ -83,22 +70,82 @@ class _PantallaEnfermedadState extends State<PantallaEnfermedad> {
     _scrollController.animateTo(scrollToValue,
         curve: Curves.easeIn, duration: Duration(milliseconds: 1000));
   }
+
+  // CONTENIDO DE LA PANTALLA
+  Widget getCards(slide) {
+    return Container(
+      height: MediaQuery.of(context).size.height/10,
+      padding: EdgeInsets.only(left: 10.0),
+      margin: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height/35),
+      decoration: BoxDecoration(
+        color: Colors.white,
+          boxShadow: [
+            BoxShadow(color: Colors.grey[200], blurRadius: 15, spreadRadius: 8)
+          ],
+          border: Border.all(
+              color: Colors.grey.withOpacity(0.3),
+              style: BorderStyle.solid,
+              width: 1.0,
+          ),
+        ),
+        // width: 125.0,
+        child: Column(
+          children: [
+            Text(
+              slide['nombreApartado'],
+              style: TextStyle(
+                  fontWeight: FontWeight.normal,
+                  fontSize: MediaQuery.of(context).size.width/20,
+                  color: Colors.black,
+                  fontFamily: 'Lato'
+              ),
+            ),
+            Text(
+              widget.datos[int.parse(slide['id'])-1],
+              style: TextStyle(
+                  fontWeight: FontWeight.normal,
+                  fontSize: MediaQuery.of(context).size.width/29,
+                  color: Colors.black,
+                  fontFamily: 'Lato'
+              ),
+            ),
+          ],
+
+        ),
+    );
+  }
   
   @override
   Widget build(BuildContext context) {
-    
+
+    widget.datos = [widget.textQueEs, widget.textStats, widget.textSynthoms, widget.texttratamiento, widget.textPrevencion];
+
     Widget getTitles(apartados){
       return InkWell(
         onTap: (){
           scrollToSlide(apartados);
         },
-        child: Padding(padding: EdgeInsets.only(top:15.0, left: 20.0),
+        child: Container(
+          alignment: Alignment.center,
+
+          padding: EdgeInsets.only( left: 8.0, right: 8.0),
+          margin: EdgeInsets.only(right: MediaQuery.of(context).size.width/40, left: MediaQuery.of(context).size.width/40,
+          top: MediaQuery.of(context).size.height/80, bottom: MediaQuery.of(context).size.height/80),
+          
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(50.0),
+            color: Color(0xff459AFF),
+          ),
+          
           child: Text(
             apartados['nombreApartado'],
             style: TextStyle(
               fontFamily: "Lato",
               fontWeight: apartados['seleccionado'] ? FontWeight.bold : FontWeight.normal,
-              fontSize: 17.0
+              fontSize: 17.0,
+              decoration: apartados['seleccionado'] ? TextDecoration.underline : TextDecoration.none,
+              fontStyle: apartados['seleccionado'] ? FontStyle.italic : FontStyle.normal,
+              color: Colors.white
             ),
           ),
         ),
@@ -124,9 +171,11 @@ class _PantallaEnfermedadState extends State<PantallaEnfermedad> {
     );
 
     final accesosDirectos = Container(
-      height: MediaQuery.of(context).size.height/5,
+      height: MediaQuery.of(context).size.height/15,
+      // color: Color(0xff459AFF),
       child: ListView(
         scrollDirection: Axis.horizontal,
+        physics: BouncingScrollPhysics(),
         children: apartados.map((e) {
           return getTitles(e);
         }).toList(),
@@ -137,8 +186,11 @@ class _PantallaEnfermedadState extends State<PantallaEnfermedad> {
     final cuerpo = Container(
       width: double.infinity,
       child: ListView(
+        shrinkWrap: true,
+        physics: BouncingScrollPhysics(),
+        controller: _scrollController,
         children: apartados.map((e){
-          return getTitles(e);
+          return getCards(e);
         }).toList(),
       ),
     );
@@ -185,7 +237,8 @@ class _PantallaEnfermedadState extends State<PantallaEnfermedad> {
             ),
           ),
           SliverList(delegate: SliverChildListDelegate([
-            accesosDirectos
+            accesosDirectos,
+            cuerpo
           ]))
         ],
       ),

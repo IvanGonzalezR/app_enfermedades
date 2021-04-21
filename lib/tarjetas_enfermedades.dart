@@ -17,7 +17,8 @@ class _TarjetasEnfermedadesState extends State<TarjetasEnfermedades> {
     return InkWell(
       onTap: (){
         Navigator.of(context).push(CupertinoPageRoute(
-            builder: (context) => PantallaEnfermedad(widget.nombreEnfermedad, widget.pathImage)));
+            builder: (context) => PantallaEnfermedad(widget.nombreEnfermedad, widget.pathImage,
+            "quees","stats","sintomasss","tratamiento","prevencion",)));
       },
       child: Container(
         decoration: BoxDecoration(
