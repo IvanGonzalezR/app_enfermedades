@@ -1,5 +1,7 @@
+import 'package:app_enfermedades/User/InicioSesion.dart';
 import 'package:app_enfermedades/pantalla_acerca_de.dart';
 import 'package:app_enfermedades/pantalla_principal.dart';
+import 'package:app_enfermedades/pantalla_principal2.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.lightBlue),
-      home: PantallaPrincipal(),
+      home: PantallaPrincipal2(),
     );
   }
 }
@@ -28,7 +30,7 @@ class pasntallaPrincipal extends StatelessWidget{
           appBar: AppBar(
             title: Text('App Enfermedades'),
           ),
-          body: PantallaPrincipal(),
+          body: InicioSesion(),
           //Boton signo de interrogacion
           floatingActionButton: FloatingActionButton(
             onPressed: (){
