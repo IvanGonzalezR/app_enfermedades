@@ -48,7 +48,7 @@ class _TarjetasEnfermedadesState extends State<TarjetasEnfermedades> {
                 borderRadius: BorderRadius.only(topRight: Radius.circular(10), topLeft: Radius.circular(10)),
                 image: DecorationImage(image: AssetImage(widget.pathImage), fit: BoxFit.cover)
               ),
-              height: MediaQuery.of(context).size.height/4.2,
+              height: MediaQuery.of(context).size.height/5.25,
                 // child: Image(image: AssetImage("assets/images/tarjetaCovid.jpg"), fit: BoxFit.cover,)
             ),
             Container(

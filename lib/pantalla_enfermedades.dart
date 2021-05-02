@@ -52,6 +52,28 @@ class PantallaEnfermedades extends StatelessWidget{
         TarjetasEnfermedades("Asma","assets/images/tarjetaAsma.jpg","que es", "Estadisticas", "Sintomas", "Tratamiento", "Prevencion"),
         TarjetasEnfermedades("VIH/Sida","assets/images/tarjetaSIDA.jpg", "que es", "Estadisticas", "Sintomas", "Tratamiento", "Prevencion"),
         TarjetasEnfermedades("Poliomelitis","assets/images/tarjetaPolio.jpg", "que es", "Estadisticas", "Sintomas", "Tratamiento", "Prevencion"),
+        TarjetasEnfermedades("Cirrosis","assets/images/tarjetaCirrosis.jpg", "La cirrosis es un conjunto de cicatrices en el hígado. El tejido cicatricial se forma por lesiones o enfermedades prolongadas. Este tejido no puede hacer lo que hace el tejido hepático sano: producir proteínas, ayudar a combatir las infecciones, limpiar la sangre, ayudar a digerir los alimentos y almacenar energía.",
+                              '''Se estima que la cirrosis se halla detrás de 800.000 muertes anuales en todo el mundo. En Europa y Estados Unidos tiene una prevalencia de alrededor de 250 casos anuales por cada 100.000 personas. En los varones la prevalencia es dos veces mayor que en las mujeres.''',
+                "-Fatiga\n-Aparición de hemorragias o hematomas con facilidad\n-Pérdida de apetito\n-Náuseas\n-Hinchazón de las piernas, los pies o los tobillos (edema)"
+                "\n-Pérdida de peso"
+                "\n-Picazón en la piel"
+                "\n-Decoloración amarilla en la piel y los ojos (ictericia)"
+                "\n-Acumulación de líquido en el abdomen (ascitis)"
+                "\n-Vasos sanguíneos en forma de arañas en la piel"
+                "\n-Enrojecimiento en las palmas de las manos"
+                "\n-En las mujeres, ausencia o pérdida de periodos no relacionados con la menopausia"
+                "\n-En los hombres, pérdida del deseo sexual, agrandamiento de los senos (ginecomastia) o atrofia testicular"
+                "\n-Confusión, somnolencia y dificultad en el habla (encefalopatía hepática)", '''El tratamiento para la cirrosis depende de su causa y de la medida del daño al hígado. Los objetivos del tratamiento son de hacer más lenta la progresión del tejido cicatricial en el hígado y de prevenir o tratar los síntomas y las complicaciones de la cirrosis. Si el daño al hígado es grave, quizás necesites internarte en el hospital.
+                 \nEn la etapa temprana de la cirrosis, se puede minimizar el daño hepático si se trata la causa de base. Entre las opciones se incluyen las siguientes:
+                 \nTratamiento para la dependencia del alcohol. Las personas que padecen cirrosis provocada por el abuso de alcohol deberían dejar de beber. Si resulta difícil detener el abuso de alcohol, es posible que el médico te recomiende un programa de tratamiento para esa adicción. Si tienes cirrosis, es fundamental que dejes de beber, ya que cualquier cantidad de alcohol es tóxica para el hígado.
+                 \nPérdida de peso. Es posible que las personas con cirrosis provocada por la enfermedad de hígado graso de causa no alcohólica se recuperen si pierden peso y controlan sus niveles de azúcar en sangre.
+                 \nMedicamentos para controlar la hepatitis. Los medicamentos pueden limitar el avance del daño a las células del hígado causado por la hepatitis B o C a través de un tratamiento específico de estos virus.
+                 \nMedicamentos para controlar otras causas y síntomas de la cirrosis. Los medicamentos pueden frenar la evolución de algunos tipos de cirrosis hepática. Por ejemplo, en el caso de las personas que padecen cirrosis biliar primaria diagnosticada en una etapa temprana, los medicamentos pueden retrasar significativamente la evolución de la cirrosis.''',
+                '''-No bebas alcohol si tienes cirrosis. Si tienes una enfermedad hepática, debes evitar el alcohol.
+                \n-Mantén una alimentación sana. Elige una dieta basada en vegetales, con abundantes frutas y verduras. Selecciona granos integrales y fuentes de proteínas magras. Reduce la cantidad de grasas y comidas fritas.
+                \n-Mantén un peso saludable. Una cantidad excesiva de grasas en el cuerpo puede dañar tu estómago. Consulta con tu médico sobre un plan para perder peso si eres obeso o tienes sobrepeso.
+                \n-Reduce el riesgo de hepatitis. Compartir agujas y tener relaciones sexuales sin protección puede aumentar el riesgo de hepatitis B y C. Pregúntale a tu médico por las vacunas contra la hepatitis.
+                \n-Si estás preocupado por el riesgo de padecer cirrosis hepática, consulta con tu médico sobre las maneras en las que puedes reducir ese riesgo.'''),
         // TarjetasEnfermedades("assets/images/"),
         // TarjetasEnfermedades("assets/images/"),
       ],
