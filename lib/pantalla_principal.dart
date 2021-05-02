@@ -53,9 +53,33 @@ class PantallaPrincipal extends StatelessWidget {
             // flexibleSpace:
           ),
           SliverList(delegate: SliverChildListDelegate([
-            Divider(height: MediaQuery.of(context).size.height/6, color: Colors.transparent,),
+            Divider(height: MediaQuery.of(context).size.height/10, color: Colors.transparent,),
+            Container(
+              alignment: Alignment.center,
+              child: Text(
+                "Noticias y Artículos",
+                style: TextStyle(
+                  fontFamily: "Lato",
+                  fontSize: MediaQuery.of(context).size.width/14,
+                  fontWeight: FontWeight.w500,
+                  color: Color(0xff2a60a0)
+                ),
+              ),
+            ),
             CardsIniciales("Enterate de las últimas noticias sobre Covid-19 y mucho más!!", "assets/images/covidInicial.jpg", 1),
             Divider(height: MediaQuery.of(context).size.height/15, color: Colors.transparent),
+            Container(
+              alignment: Alignment.center,
+              child: Text(
+                "Enfermedades",
+                style: TextStyle(
+                    fontFamily: "Lato",
+                    fontSize: MediaQuery.of(context).size.width/14,
+                    fontWeight: FontWeight.w500,
+                    color: Color(0xff2a60a0)
+                ),
+              ),
+            ),
             CardsIniciales("Obten información sobre una amplia cantidad de enfermedades", "assets/images/enfermedadesInicial.jpg", 2),
           ]))
         ],
