@@ -36,7 +36,7 @@ class PantallaEnfermedades extends StatelessWidget{
               Diferentes tipos de erupciones cutáneas
               Náuseas o vómitos
               Diarrea
-              Escalofríos o vértigo
+              Escalofríos o vértigo.
               
               Las personas de cualquier edad que tengan fiebre o tos y además respiren con dificultad, sientan dolor u opresión en el pecho o tengan dificultades para hablar o moverse deben solicitar atención médica inmediatamente. De ser posible, llame con antelación a su dispensador de atención de salud al teléfono de asistencia o al centro de salud para que puedan indicarle el dispensario adecuado.
               ''',
