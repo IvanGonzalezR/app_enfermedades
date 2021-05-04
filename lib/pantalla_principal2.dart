@@ -31,14 +31,14 @@ class _PantallaPrincipal2State extends State<PantallaPrincipal2> {
       child: Container(
         width: MediaQuery.of(context).size.width/1.4,
         height: MediaQuery.of(context).size.height/17,
-        margin: EdgeInsets.only(bottom: MediaQuery.of(context).size.height/25),
+        margin: EdgeInsets.only(bottom: MediaQuery.of(context).size.height/60),
         child: RaisedButton(
           color: Color(0xff459AFF),
 
           onPressed: ()async{
             await Navigator.push(context,
                 MaterialPageRoute(
-                  builder: (BuildContext context) => InicioSesion()));
+                  builder: (BuildContext context) => InicioSesion(0)));
           },
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
           child: Text(
@@ -65,7 +65,7 @@ class _PantallaPrincipal2State extends State<PantallaPrincipal2> {
           onPressed: ()async{
             await Navigator.push(context,
                 MaterialPageRoute(
-                    builder: (BuildContext context) => InicioSesion()));
+                    builder: (BuildContext context) => InicioSesion(1)));
           },
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
           child: Text(

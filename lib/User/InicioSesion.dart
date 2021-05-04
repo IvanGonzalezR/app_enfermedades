@@ -3,18 +3,19 @@ import 'log_in.dart' as login;
 import 'sign_up.dart' as signup;
 
 class InicioSesion extends StatefulWidget{
+  int tab = 1;
+  InicioSesion(this.tab);
   @override
   MyTabsState createState() => new MyTabsState();
 }
 
 class MyTabsState extends State<InicioSesion> with SingleTickerProviderStateMixin{
-  
   TabController controller;
 
   @override
   void initState(){
     super.initState();
-    controller = new TabController(vsync: this, length: 2);
+    controller = new TabController(vsync: this, length: 2, initialIndex: widget.tab);
   }
 
   @override
@@ -25,6 +26,7 @@ class MyTabsState extends State<InicioSesion> with SingleTickerProviderStateMixi
 
   @override
   Widget build(BuildContext context){
+    // int tabnum= widget.tab;
 
     return Scaffold(
 
@@ -87,6 +89,7 @@ class MyTabsState extends State<InicioSesion> with SingleTickerProviderStateMixi
         ),
       body: new TabBarView(
         controller: controller,
+
         children:[
           //Pestañas a
           new login.log_in(),
