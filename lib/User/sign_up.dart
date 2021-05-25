@@ -189,7 +189,7 @@ class _sign_upState extends State<sign_up>{
               //Aquí vna los widgets de la pantalla, de manera ordenada
               // logo,
               getPresentacion,
-              Divider(color: Colors.transparent, height: MediaQuery.of(context).size.height/15,),
+              Divider(color: Colors.transparent, height: MediaQuery.of(context).size.height/20,),
               correo1,
               Divider(color: Colors.transparent, height: MediaQuery.of(context).size.height/60,),
               correo2,

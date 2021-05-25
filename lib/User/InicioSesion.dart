@@ -31,15 +31,15 @@ class MyTabsState extends State<InicioSesion> with SingleTickerProviderStateMixi
     return Scaffold(
 
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(MediaQuery.of(context).size.height/3.5),
+        preferredSize: Size.fromHeight(MediaQuery.of(context).size.height/3.2),
         child: AppBar(
           backgroundColor: Color(0xff459AFF),
           bottom: PreferredSize(
-            preferredSize: Size.fromHeight(MediaQuery.of(context).size.height/3),
+            preferredSize: Size.fromHeight(MediaQuery.of(context).size.height/3.5),
             child: Container(
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(bottomLeft: Radius.circular(50.0),
-                      bottomRight: Radius.circular(50.0)
+                  borderRadius: BorderRadius.only(bottomLeft: Radius.circular(45.0),
+                      bottomRight: Radius.circular(45.0)
                   )),
               child: Column(children: [
                   Container(
@@ -47,7 +47,7 @@ class MyTabsState extends State<InicioSesion> with SingleTickerProviderStateMixi
                   //   padding: EdgeInsets.only(left: 20.0, right: 20.0),
                   //   height: MediaQuery.of(context).size.height/4,
                     child: CircleAvatar(
-                      radius: 90.0,
+                      radius: MediaQuery.of(context).size.height/10,
                       backgroundColor: Colors.transparent,
                       // foregroundImage: AssetImage('assets/logo_login.png'),
                       child: Image(

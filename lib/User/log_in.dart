@@ -142,7 +142,7 @@ class _log_inState extends State<log_in>{
             children: <Widget>[
               // logo,
               textBienvenido,
-            Divider(height: MediaQuery.of(context).size.height*0.08, color: Colors.transparent,),
+            Divider(height: MediaQuery.of(context).size.height*0.02, color: Colors.transparent,),
             Column(
                     children: [
                       SizedBox(height: 48.0),
