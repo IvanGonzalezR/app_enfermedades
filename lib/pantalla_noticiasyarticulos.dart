@@ -69,12 +69,19 @@ class _PantallaNoticiasArticulosState extends State<PantallaNoticiasArticulos> {
       ),
       body: ListView(
         children: [
-          // NoticiaCard("nombre_producto", "descripcion_producto",
-          //     "https://images.unsplash.com/photo-1621966447384-1c397069ed75?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80", "50"),
-          // NoticiaCard("nombre_producto", "descripcion_producto",
-          //     "https://images.unsplash.com/photo-1621966447384-1c397069ed75?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80", "69"),
-          // NoticiaCard("nombre_producto", "descripcion_producto",
-          //     "https://images.unsplash.com/photo-1621966447384-1c397069ed75?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80", "30"),
+          NoticiaCard("La OMS y Suiza ponen en funcionamiento un BioHub mundial dedicado al almacenamiento, intercambio y análisis de patógenos",
+              "La Organización Mundial de la Salud (OMS) y la Confederación Suiza han firmado hoy un memorando de entendimiento para poner en funcionamiento el primer repositorio del BioHub de la OMS",
+              "https://images.unsplash.com/photo-1542736667-069246bdbc6d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGhlYWx0aHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60", "50"),
+          NoticiaCard("La Asamblea Mundial de la Salud se centrará en el fin de la pandemia de COVID-19 y en la preparación para la siguiente pandemia",
+              "En un año en el que la COVID-19 amenaza la salud y el bienestar de todos los habitantes del planeta, la 74.ª Asamblea Mundial de la Salud hará hincapié en la urgencia de poner fin a la actual pandemia y prevenir la próxima construyendo un mundo más sano, más seguro y más justo.",
+              "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bWVkaWNpbmV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60", "69"),
+          NoticiaCard("La OMS y Suiza ponen en funcionamiento un BioHub mundial dedicado al almacenamiento, intercambio y análisis de patógenos",
+              "La Organización Mundial de la Salud (OMS) y la Confederación Suiza han firmado hoy un memorando de entendimiento para poner en funcionamiento el primer repositorio del BioHub de la OMS",
+              "https://images.unsplash.com/photo-1542736667-069246bdbc6d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fGhlYWx0aHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60", "50"),
+          NoticiaCard("La Asamblea Mundial de la Salud se centrará en el fin de la pandemia de COVID-19 ",
+              "En un año en el que la COVID-19 amenaza la salud y el bienestar de todos los habitantes del planeta",
+              "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bWVkaWNpbmV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60", "69"),
+
         ],
       ),
     );

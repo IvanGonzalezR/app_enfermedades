@@ -32,7 +32,8 @@ class _NoticiaCardState extends State<NoticiaCard> {
               children: [
                 Text(
                   widget.titulo,
-                  overflow: TextOverflow.clip,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 4,
                   style: TextStyle(
                     fontFamily: "Lato",
                     fontWeight: FontWeight.bold,
@@ -41,7 +42,7 @@ class _NoticiaCardState extends State<NoticiaCard> {
                 ),
                 Text(
                   widget.descripcion,
-                  maxLines: 4,
+                  maxLines: 3,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                       fontFamily: "Lato",
@@ -115,42 +116,47 @@ class _NoticiaCardState extends State<NoticiaCard> {
       ),
     );
 
-    return InkWell(
-      onTap: () async{/*Ventana a mostrar*/},
-      child: Stack(
-        alignment: Alignment.bottomRight,
-        children: [
-          Container(
-            height: MediaQuery.of(context).size.height / 4,
-            margin: EdgeInsets.only(bottom: 10.0),
-            padding: EdgeInsets.all(10.0),
-            decoration: BoxDecoration(
-                color: Color(0xffefefef)),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                nombre_descripcion,
-                Container(
-                  margin: EdgeInsets.symmetric(horizontal: 5.0),
-                  child: Image(
-                    image: NetworkImage(widget.path_image),
-                    height: MediaQuery.of(context).size.width / 4,
-                    width: MediaQuery.of(context).size.width / 4,
-                    fit: BoxFit.fill,
+    return Flex(
+      direction: Axis.vertical,
+      children: [
+      InkWell(
+        onTap: () async{/*Ventana a mostrar*/},
+        child: Stack(
+          alignment: Alignment.bottomRight,
+          children: [
+            Container(
+              height: MediaQuery.of(context).size.height / 4,
+              margin: EdgeInsets.only(bottom: 10.0),
+              padding: EdgeInsets.all(10.0),
+              decoration: BoxDecoration(
+                  color: Color(0xffefefef)),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  nombre_descripcion,
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 10.0),
+                    child: Image(
+                      image: NetworkImage(widget.path_image),
+                      height: MediaQuery.of(context).size.width / 4,
+                      width: MediaQuery.of(context).size.width / 4,
+                      fit: BoxFit.fill,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          //FAB
-          puntuacion_container,
-          // Container(
-          //     margin: EdgeInsets.only(
-          //         right: MediaQuery.of(context).size.width / 40,
-          //         bottom: MediaQuery.of(context).size.width / 40),
-          //     child: FabAddCart()),
-        ],
+            //FAB
+            puntuacion_container,
+            // Container(
+            //     margin: EdgeInsets.only(
+            //         right: MediaQuery.of(context).size.width / 40,
+            //         bottom: MediaQuery.of(context).size.width / 40),
+            //     child: FabAddCart()),
+          ],
+        ),
       ),
+      ],
     );
   }
 }
