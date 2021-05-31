@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:app_enfermedades/User/InicioSesion.dart';
+import 'package:app_enfermedades/pantalla_principal.dart';
 import 'package:flutter/material.dart';
 
 
@@ -41,16 +42,6 @@ class _sign_upState extends State<sign_up>{
           )
     );
 
-    final logoFb = InkWell(
-      onTap: (){ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Facebook Tapped")));},
-      child: Container(
-          height: MediaQuery.of(context).size.height/14,
-          child: CircleAvatar(
-            backgroundColor: Colors.white,
-            radius: MediaQuery.of(context).size.height/28,
-            foregroundImage: AssetImage('assets/facebook_logo.png'),
-          )),
-    );
 
     final logoGoogle = InkWell(
       onTap: (){ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Google Tapped")));},
@@ -135,7 +126,7 @@ class _sign_upState extends State<sign_up>{
     );
 
     final registerButton = InkWell(
-      onTap: () => InicioSesion(),
+      onTap: () => PantallaPrincipal(),
       child: Container(
         width: MediaQuery.of(context).size.width/2,
         height: MediaQuery.of(context).size.height/17,
@@ -145,7 +136,7 @@ class _sign_upState extends State<sign_up>{
             onPressed: ()async{
               await Navigator.pushAndRemoveUntil(context,
                   MaterialPageRoute(
-                    builder: (BuildContext context) => InicioSesion(),
+                    builder: (BuildContext context) => PantallaPrincipal(),
                   ),
                       (Route<dynamic> route) => false);
             },
@@ -181,7 +172,6 @@ class _sign_upState extends State<sign_up>{
       children: [
         logoGoogle,
         SizedBox(width: 20.0,),
-        logoFb
       ],
     );
 
@@ -199,7 +189,7 @@ class _sign_upState extends State<sign_up>{
               //Aquí vna los widgets de la pantalla, de manera ordenada
               // logo,
               getPresentacion,
-              Divider(color: Colors.transparent, height: MediaQuery.of(context).size.height/15,),
+              Divider(color: Colors.transparent, height: MediaQuery.of(context).size.height/20,),
               correo1,
               Divider(color: Colors.transparent, height: MediaQuery.of(context).size.height/60,),
               correo2,

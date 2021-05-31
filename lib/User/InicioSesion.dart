@@ -3,18 +3,19 @@ import 'log_in.dart' as login;
 import 'sign_up.dart' as signup;
 
 class InicioSesion extends StatefulWidget{
+  int tab = 1;
+  InicioSesion(this.tab);
   @override
   MyTabsState createState() => new MyTabsState();
 }
 
 class MyTabsState extends State<InicioSesion> with SingleTickerProviderStateMixin{
-  
   TabController controller;
 
   @override
   void initState(){
     super.initState();
-    controller = new TabController(vsync: this, length: 2);
+    controller = new TabController(vsync: this, length: 2, initialIndex: widget.tab);
   }
 
   @override
@@ -25,19 +26,20 @@ class MyTabsState extends State<InicioSesion> with SingleTickerProviderStateMixi
 
   @override
   Widget build(BuildContext context){
+    // int tabnum= widget.tab;
 
     return Scaffold(
 
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(MediaQuery.of(context).size.height/3.5),
+        preferredSize: Size.fromHeight(MediaQuery.of(context).size.height/3.2),
         child: AppBar(
           backgroundColor: Color(0xff459AFF),
           bottom: PreferredSize(
-            preferredSize: Size.fromHeight(MediaQuery.of(context).size.height/3),
+            preferredSize: Size.fromHeight(MediaQuery.of(context).size.height/3.5),
             child: Container(
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(bottomLeft: Radius.circular(50.0),
-                      bottomRight: Radius.circular(50.0)
+                  borderRadius: BorderRadius.only(bottomLeft: Radius.circular(45.0),
+                      bottomRight: Radius.circular(45.0)
                   )),
               child: Column(children: [
                   Container(
@@ -45,7 +47,7 @@ class MyTabsState extends State<InicioSesion> with SingleTickerProviderStateMixi
                   //   padding: EdgeInsets.only(left: 20.0, right: 20.0),
                   //   height: MediaQuery.of(context).size.height/4,
                     child: CircleAvatar(
-                      radius: 90.0,
+                      radius: MediaQuery.of(context).size.height/10,
                       backgroundColor: Colors.transparent,
                       // foregroundImage: AssetImage('assets/logo_login.png'),
                       child: Image(
@@ -87,6 +89,7 @@ class MyTabsState extends State<InicioSesion> with SingleTickerProviderStateMixi
         ),
       body: new TabBarView(
         controller: controller,
+
         children:[
           //Pestañas a
           new login.log_in(),

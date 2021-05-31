@@ -1,7 +1,7 @@
 import 'package:app_enfermedades/cards_iniciales.dart';
 import 'package:app_enfermedades/pantalla_acerca_de.dart';
 import 'package:app_enfermedades/pantalla_enfermedades.dart';
-import 'package:app_enfermedades/pantalla_noticias_articulos.dart';
+import 'package:app_enfermedades/pantalla_noticiasyarticulos.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +18,7 @@ class PantallaPrincipal extends StatelessWidget {
           new RaisedButton(color: Colors.blue, textColor: Colors.white,child: Text('Enterate de las ultimas noticias \nsobre la salud',
               style: TextStyle(fontSize: 20.0)),onPressed: (){
             Navigator.of(context).push(CupertinoPageRoute(
-                builder: (context) =>PantallaNoticiasyArticulos()));
+                builder: (context) =>PantallaNoticiasArticulos()));
           }),
           Text('Enfermedades',style: TextStyle(fontSize: 40, color: Color(0xff459AFF))),
           new RaisedButton(color: Colors.blue,textColor: Colors.white,child: Text('Obten informacion sobre una\n amplia cantidad de enfermedades',

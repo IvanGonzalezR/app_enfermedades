@@ -1,5 +1,5 @@
 import 'package:app_enfermedades/pantalla_enfermedades.dart';
-import 'package:app_enfermedades/pantalla_noticias_articulos.dart';
+import 'package:app_enfermedades/pantalla_noticiasyarticulos.dart';
 import 'package:flutter/material.dart';
 
 class CardsIniciales extends StatefulWidget {
@@ -47,7 +47,7 @@ class _CardsInicialesState extends State<CardsIniciales> {
       onTap: (){
         if(widget.index == 1){
           Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) =>PantallaNoticiasyArticulos()));
+              builder: (context) =>PantallaNoticiasArticulos()));
         }else{
           Navigator.of(context).push(MaterialPageRoute(
               builder: (context) =>PantallaEnfermedades()));

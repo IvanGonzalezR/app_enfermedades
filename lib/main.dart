@@ -30,7 +30,7 @@ class pasntallaPrincipal extends StatelessWidget{
           appBar: AppBar(
             title: Text('App Enfermedades'),
           ),
-          body: InicioSesion(),
+
           //Boton signo de interrogacion
           floatingActionButton: FloatingActionButton(
             onPressed: (){
