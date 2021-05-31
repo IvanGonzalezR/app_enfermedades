@@ -8,10 +8,11 @@ class NoticiaCard extends StatefulWidget {
   final String titulo;
   final String descripcion;
   final String path_image;
-  final fiabilidad;
+  final String fiabilidad;
+  final String url;
 
   NoticiaCard(this.titulo, this.descripcion,
-      this.path_image, this.fiabilidad);
+      this.path_image, this.fiabilidad, this.url);
 
   @override
   _NoticiaCardState createState() => _NoticiaCardState();
@@ -33,13 +34,14 @@ class _NoticiaCardState extends State<NoticiaCard> {
                 Text(
                   widget.titulo,
                   overflow: TextOverflow.ellipsis,
-                  maxLines: 4,
+                  maxLines: 3,
                   style: TextStyle(
                     fontFamily: "Lato",
                     fontWeight: FontWeight.bold,
                     fontSize: 18.0,
                   ),
                 ),
+                Divider(color: Colors.transparent, height: 5.0,),
                 Text(
                   widget.descripcion,
                   maxLines: 3,
@@ -120,7 +122,9 @@ class _NoticiaCardState extends State<NoticiaCard> {
       direction: Axis.vertical,
       children: [
       InkWell(
-        onTap: () async{/*Ventana a mostrar*/},
+        onTap: (){
+          
+        },
         child: Stack(
           alignment: Alignment.bottomRight,
           children: [
