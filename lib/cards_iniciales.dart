@@ -60,7 +60,7 @@ class _CardsInicialesState extends State<CardsIniciales> {
           Container(
             height: MediaQuery.of(context).size.height/5,
             padding: EdgeInsets.all(10.0),
-            margin: EdgeInsets.all(8.0),
+            margin: EdgeInsets.only(top: 8.0, bottom: 8.0, left: 15.0, right: 15.0),
             decoration: BoxDecoration(
                 color: Color(0xff459AFF),
                 borderRadius: BorderRadius.circular(10.0),
@@ -88,6 +88,7 @@ class _CardsInicialesState extends State<CardsIniciales> {
                   decoration: BoxDecoration(borderRadius: BorderRadius.circular(50.0)),
                   child: Image(image: AssetImage(widget.path_image),
                       // height: MediaQuery.of(context).size.width/4,
+
                       width: MediaQuery.of(context).size.width/2,
                       fit: BoxFit.fill),
                   ),

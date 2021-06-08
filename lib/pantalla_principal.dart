@@ -1,7 +1,10 @@
+import 'package:app_enfermedades/button_bar.dart';
 import 'package:app_enfermedades/cards_iniciales.dart';
 import 'package:app_enfermedades/pantalla_acerca_de.dart';
 import 'package:app_enfermedades/pantalla_enfermedades.dart';
 import 'package:app_enfermedades/pantalla_noticiasyarticulos.dart';
+import 'package:app_enfermedades/profile_background.dart';
+import 'package:app_enfermedades/profile_header.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -30,30 +33,35 @@ class PantallaPrincipal extends StatelessWidget {
       ),
     );
 
-
-
     return Scaffold(
       backgroundColor: const Color(0xffefefef),
       body: CustomScrollView(
         physics: ClampingScrollPhysics(),
         slivers: [
-          SliverAppBar(
-            backgroundColor: Color(0xff459AFF),
-            stretch: true,
-            elevation: 1.0,
-            forceElevated: true,
-            expandedHeight: MediaQuery.of(context).size.height/17 ,
-            centerTitle: true,
-            title: Text("Sicklopedia App",textAlign: TextAlign.center, style: TextStyle(
-                fontFamily: "Lato",
-                fontSize: 30.0,
-                fontWeight: FontWeight.w400,
-                color: Colors.white
-            ),),
-            // flexibleSpace:
-          ),
+          // SliverAppBar(
+          //   backgroundColor: Color(0xff459AFF),
+          //   stretch: true,
+          //   elevation: 1.0,
+          //   forceElevated: true,
+          //   expandedHeight: MediaQuery.of(context).size.height/17 ,
+          //   centerTitle: true,
+          //   title: Text("Sicklopedia App",textAlign: TextAlign.center, style: TextStyle(
+          //       fontFamily: "Lato",
+          //       fontSize: 30.0,
+          //       fontWeight: FontWeight.w400,
+          //       color: Colors.white
+          //   ),),
+          //   // flexibleSpace:
+          // ),
           SliverList(delegate: SliverChildListDelegate([
-            Divider(height: MediaQuery.of(context).size.height/10, color: Colors.transparent,),
+            Stack(
+              children: [
+                ProfileBackground(),
+                ProfileHeader(),
+                ButtonsBarr(),
+              ],
+            ),
+            Divider(height: MediaQuery.of(context).size.height/30, color: Colors.transparent,),
             Container(
               alignment: Alignment.center,
               child: Text(
@@ -67,7 +75,7 @@ class PantallaPrincipal extends StatelessWidget {
               ),
             ),
             CardsIniciales("Enterate de las últimas noticias sobre Covid-19 y mucho más!!", "assets/images/covidInicial.jpg", 1),
-            Divider(height: MediaQuery.of(context).size.height/15, color: Colors.transparent),
+            Divider(height: MediaQuery.of(context).size.height/100, color: Colors.transparent),
             Container(
               alignment: Alignment.center,
               child: Text(

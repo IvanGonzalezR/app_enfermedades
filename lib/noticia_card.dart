@@ -38,7 +38,7 @@ class _NoticiaCardState extends State<NoticiaCard> {
                   style: TextStyle(
                     fontFamily: "Lato",
                     fontWeight: FontWeight.bold,
-                    fontSize: 18.0,
+                    fontSize: 20.0,
                   ),
                 ),
                 Divider(color: Colors.transparent, height: 5.0,),
@@ -105,7 +105,7 @@ class _NoticiaCardState extends State<NoticiaCard> {
     final puntuacion_container = Container(
       width: MediaQuery.of(context).size.width/1.4,
       height: MediaQuery.of(context).size.height/24,
-      margin: EdgeInsets.only(bottom: 12.0),
+      margin: EdgeInsets.only(bottom: 14.0),
       decoration: BoxDecoration(color: Colors.transparent),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -136,15 +136,16 @@ class _NoticiaCardState extends State<NoticiaCard> {
                   color: Color(0xffefefef)),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   nombre_descripcion,
                   Container(
-                    margin: EdgeInsets.symmetric(horizontal: 10.0),
+                    margin: EdgeInsets.only(left: 5.0, right: 5.0),
                     child: Image(
                       image: NetworkImage(widget.path_image),
                       height: MediaQuery.of(context).size.width / 4,
                       width: MediaQuery.of(context).size.width / 4,
-                      fit: BoxFit.fill,
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ],

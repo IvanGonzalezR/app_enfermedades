@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "659258398128",
+    "project_id": "appenfermedades",
+    "storage_bucket": "appenfermedades.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:659258398128:android:a690b03be02a656413b275",
+        "android_client_info": {
+          "package_name": "com.example.app_enfermedades"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "659258398128-6119dgfhftmbiimd302dn961apo6d9ku.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.app_enfermedades",
+            "certificate_hash": "605307f3e419b29adb8064eb1659ada441116cd3"
+          }
+        },
+        {
+          "client_id": "659258398128-kjgc38b88ps7pv6ku4mnguroqkn2kjhk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.app_enfermedades",
+            "certificate_hash": "2092cf35aeb25a739f18e6c92233a46e6221e1c3"
+          }
+        },
+        {
+          "client_id": "659258398128-oltkn21p1dt203sasa2smr1n2lu4tksf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRoX6qppDfCJWtgXWKHmtjj3pGnpWOu-I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "659258398128-oltkn21p1dt203sasa2smr1n2lu4tksf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
